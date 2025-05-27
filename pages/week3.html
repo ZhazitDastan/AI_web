@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Жасанды интеллект - 1-Апта</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/week1.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <img src="/assets/AI_HTML/week1.jpeg" class="bg-video">
+      
+    <div class="hero-content" data-aos="fade-up">
+      <h1 class="hero-title">Жасанды интеллект — </h1>
+      <p class="hero-subtitle">білім мен шығармашылықтың жаңа көкжиегі, оны меңгеру — болашаққа қадам.</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container-fluid w-80 mx-auto">
+        <!-- Logo -->
+        <a class="navbar-brand" href="/index.html">
+          <div class="logo-wrapper">
+            <img src="/assets/logo2.png" width="70" height="70" alt="logo">
+          </div>
+        </a>
+  
+        <!-- Отображение активной ссылки в центре на мобильных -->
+        <div class="current-page d-lg-none mx-auto">
+          <span id="currentPageText"></span>
+        </div>
+  
+        <!-- Offcanvas toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <!-- Main menu -->
+        <div class="collapse navbar-collapse justify-content-center">
+          <ul class="navbar-nav">
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="/index.html" aria-current="page">Басты бет</a>
+            </li>
+            <li class="nav-item mx-2 position-relative">
+              <button class="nav-link btn services-button" id="servicesButton">
+                <span id="servicesText">1-Апта</span>
+                <span class="submenu-arrow">▼</span>
+              </button>
+              <div class="dropdown-menu submenu p-3" id="desktopSubmenu">
+                <div class="row">
+                  <div class="col-6">
+                    <a href="/pages/week1.html" class="dropdown-item submenu-option">1-Апта</a>
+                    <a href="/pages/week2.html" class="dropdown-item submenu-option">2-Апта</a>
+                    <a href="/pages/week3.html" class="dropdown-item submenu-option">3-Апта</a>
+                    <a href="/pages/week4.html" class="dropdown-item submenu-option">4-Апта</a>
+                    <a href="/pages/week5.html" class="dropdown-item submenu-option">5-Апта</a>
+                    <a href="/pages/week6.html" class="dropdown-item submenu-option">6-Апта</a>
+                    <a href="/pages/week7.html" class="dropdown-item submenu-option">7-Апта</a>
+                    <a href="/pages/week8.html" class="dropdown-item submenu-option">8-Апта</a>
+                  </div>
+                  <div class="col-6">
+                    <a href="/pages/week9.html" class="dropdown-item submenu-option">9-Апта</a>
+                    <a href="/pages/week10.html" class="dropdown-item submenu-option">10-Апта</a>
+                    <a href="/pages/week11.html" class="dropdown-item submenu-option">11-Апта</a>
+                    <a href="/pages/week12.html" class="dropdown-item submenu-option">12-Апта</a>
+                    <a href="/pages/week13.html" class="dropdown-item submenu-option">13-Апта</a>
+                    <a href="/pages/week14.html" class="dropdown-item submenu-option">14-Апта</a>
+                    <a href="/pages/week15.html" class="dropdown-item submenu-option">15-Апта</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="/AI.html">Жасанды интеллект</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Profile (visible on large screens) -->
+        <ul class="navbar-nav ms-auto d-none d-lg-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
+              <img src="/assets/profile.png" alt="avatar" class="profile-img">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Менің профилім</a></li>
+              <li><a class="dropdown-item" href="#">Бұғаттама</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Шығу</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  
+    <!-- Offcanvas menu (for mobile) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
+      <div class="offcanvas-header d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <h6 class="ms-2">Менің профилім</h6>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column p-0">
+        <!-- Профиль -->
+        <div class="sidebar-profile text-center p-4 border-bottom">
+          <img src="/assets/profile.png" alt="avatar" class="profile-img mb-2">
+          <div class="profile-name mb-1">Ниязбекова Жулдыз</div>
+          <div class="profile-role text-wh small">Жасанды интеллект</div>
+        </div>
+  
+        <!-- Навигация -->
+        <nav class="flex-grow-1 px-3 pt-3">
+          <ul class="list-unstyled">
+            <li><a href="/index.html" class="nav-link sidebar-link py-3">Басты бет</a></li>
+            <li class="position-relative">
+              <button class="btn sidebar-link d-flex justify-content-between align-items-center w-100 py-3" id="mobileServicesButton">
+                <span id="mobileServicesText">Услуги</span>
+                <span class="submenu-arrow">►</span>
+              </button>
+              <div class="submenu p-2" id="mobileSubmenu">
+                <div class="row">
+                  <div class="col-6 p-2">
+                    <a href="/pages/week1.html" class="nav-link submenu-option py-1">1-Апта</a>
+                    <a href="/pages/week2.html" class="nav-link submenu-option py-1">2-Апта</a>
+                    <a href="/pages/week3.html" class="nav-link submenu-option py-1">3-Апта</a>
+                    <a href="/pages/week4.html" class="nav-link submenu-option py-1">4-Апта</a>
+                    <a href="/pages/week5.html" class="nav-link submenu-option py-1">5-Апта</a>
+                    <a href="/pages/week6.html" class="nav-link submenu-option py-1">6-Апта</a>
+                    <a href="/pages/week7.html" class="nav-link submenu-option py-1">7-Апта</a>
+                    <a href="/pages/week8.html" class="nav-link submenu-option py-1">8-Апта</a>
+                  </div>
+                  <div class="col-6 p-2">
+                    <a href="/pages/week9.html" class="nav-link submenu-option py-1">9-Апта</a>
+                    <a href="/pages/week10.html" class="nav-link submenu-option py-1">10-Апта</a>
+                    <a href="/pages/week11.html" class="nav-link submenu-option py-1">11-Апта</a>
+                    <a href="/pages/week12.html" class="nav-link submenu-option py-1">12-Апта</a>
+                    <a href="/pages/week13.html" class="nav-link submenu-option py-1">13-Апта</a>
+                    <a href="/pages/week14.html" class="nav-link submenu-option py-1">14-Апта</a>
+                    <a href="/pages/week15.html" class="nav-link submenu-option py-1">15-Апта</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="/AI.html" class="nav-link sidebar-link py-3 AItext">Жасанды интеллект</a></li>
+          </ul>
+        </nav>
+  
+        <!-- Помощь -->
+        <div class="sidebar-bottom text-start p-3">
+          <button class="btn btn-link d-flex align-items-center sidebar-help">
+            <i data-feather="help-circle" class="me-2"></i>
+            Көмек
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Divider -->
+  <div class="section-divider" data-aos="fade-in"></div>
+
+  <!-- Main -->
+  <main class="container py-4">
+    <h2 class="text-center h4 mb-4 pdf-title">📄 3-Апта: Сабақ материалы</h2>
+  
+    <div class="text-center glow" data-aos="fade-in">
+      <img src="/assets/image.png" alt="Сабақ материалы" class="img-fluid rounded shadow-lg" style="max-height: 80vh; object-fit: contain;">
+    </div>
+  </main>
+  
+
+  <!-- Divider -->
+  <div class="section-divider" data-aos="fade-in"></div>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container py-4">
+      <div class="row text-center text-md-start">
+        <div class="col-md-4">
+          <h5>Біз жайлы</h5>
+          <p>Біздің сайт жасанды интеллект технологияларына және оларды білім беруде, бизнесте және күнделікті өмірде қолдануға арналған.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Контакты</h5>
+          <p>Email: info@ai.kz</p>
+          <p>Телефон: +7 777 123 4567</p>
+          <p>Адрес: г. Алматы, пр. Назарбаева 100</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Біз әлеуметтік желілерде</h5>
+          <div class="social-icons">
+            <a href="#" aria-label="Telegram">
+              <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <small>© 2025 Жасанды интеллект. Барлық құқықтар қорғалған.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Инициализация Feather Icons
+    feather.replace();
+
+    // Инициализация AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+      disable: 'mobile' // Отключаем анимации на мобильных
+    });
+  </script>
+</body>
+</html>

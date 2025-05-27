@@ -153,21 +153,6 @@ body::after {
   transform: scale(1.05);
 }
 
-/* Сброс Bootstrap-отступов */
-/* .container {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-.col-md-6 {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-} */
 
 /* Conclusion Section */
 .conclusion-section {

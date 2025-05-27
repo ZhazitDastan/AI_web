@@ -127,7 +127,7 @@
       <!-- Навигация -->
       <nav class="flex-grow-1 px-3 pt-3">
         <ul class="list-unstyled">
-          <li><a href="/index.html" class="nav-link sidebar-link py-3">Басты бет</a></li>
+          <li><a href="/index.html" class="nav-link sidebar-link py-3 activeLink">Басты бет</a></li>
           <li class="position-relative">
             <button class="btn sidebar-link d-flex justify-content-between align-items-center w-100 py-3" id="mobileServicesButton">
               <span id="mobileServicesText">Услуги</span>
@@ -172,19 +172,23 @@
   </div>
 </header>
 
-<main class="container my-4 flex-grow-1">
+<main class="container my-4 flex-grow-1" style="color: #fff; border-radius: 12px; padding: 2rem;">
   <!-- Интро-блок: Что такое ИИ? -->
   <section class="intro-section py-5">
     <div class="container">
-      <h2 class="text-center mb-4" data-aos="fade-up">💡 Жасанды интеллект дегеніміз не?</h2>
-      <div class="row">
-        <div class="col-md-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100">
-          <span class="icon me-3">🤖</span>
-          <p>Жасанды интеллект (ЖИ) — бұл машиналардың адам ойлауын имитациялау, үйрену, шешім қабылдау және бұрын адам интеллектін қажет ететін тапсырмаларды орындау қабілеті.</p>
+      <h2 class="text-center mb-5" data-aos="fade-up">💡 Жасанды интеллект дегеніміз не?</h2>
+      <div class="row g-4">
+        <div class="col-md-6 d-flex align-items-start" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon-wrapper me-3">
+            <span class="display-5 bg-white text-dark rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">🤖</span>
+          </div>
+          <p class="mb-0">Жасанды интеллект (ЖИ) — бұл машиналардың адам ойлауын имитациялау, үйрену, шешім қабылдау және бұрын адам интеллектін қажет ететін тапсырмаларды орындау қабілеті.</p>
         </div>
-        <div class="col-md-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
-          <span class="icon me-3">📈</span>
-          <p>Ол қазірдің өзінде медицинада, білім беруде, дизайнда, кодтауда және басқа да көптеген салаларда көмектесуде.</p>
+        <div class="col-md-6 d-flex align-items-start" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon-wrapper me-3">
+            <span class="display-5 bg-white text-dark rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">📈</span>
+          </div>
+          <p class="mb-0">Ол қазірдің өзінде медицинада, білім беруде, дизайнда, кодтауда және басқа да көптеген салаларда көмектесуде.</p>
         </div>
       </div>
     </div>
@@ -193,29 +197,31 @@
   <!-- Слайдер: Популярные ИИ -->
   <section class="popular-ai-section py-5">
     <div class="container">
-      <h2 class="text-center mb-4" data-aos="fade-up">🎞️ Танымал Жасанды Интеллект</h2>
+      <h2 class="text-center mb-5" data-aos="fade-up">🎞️ Танымал Жасанды Интеллект</h2>
       <div id="aiCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+
+          <!-- Слайд 1 -->
           <div class="carousel-item active">
-            <div class="row">
-              <div class="col-md-4 mb-4" data-aos="fade-up">
-                <div class="card ai-card h-100">
+            <div class="row g-4 justify-content-center">
+              <div class="col-md-4" data-aos="fade-up">
+                <div class="card ai-card h-100 text-dark shadow-sm border-0 rounded-4">
                   <div class="card-body text-center">
                     <h5 class="card-title">ChatGPT</h5>
                     <p class="card-text">Сөйлеседі, сұрақтарға жауап береді, код жазуға көмектеседі.</p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card ai-card h-100">
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card ai-card h-100 text-dark shadow-sm border-0 rounded-4">
                   <div class="card-body text-center">
                     <h5 class="card-title">Midjourney</h5>
                     <p class="card-text">Мәтіндік сипаттама бойынша суреттер жасайды.</p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card ai-card h-100">
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card ai-card h-100 text-dark shadow-sm border-0 rounded-4">
                   <div class="card-body text-center">
                     <h5 class="card-title">Copilot</h5>
                     <p class="card-text">Программисттерге код редакторларында көмекші.</p>
@@ -224,18 +230,20 @@
               </div>
             </div>
           </div>
+
+          <!-- Слайд 2 -->
           <div class="carousel-item">
-            <div class="row">
-              <div class="col-md-4 mb-4" data-aos="fade-up">
-                <div class="card ai-card h-100">
+            <div class="row g-4 justify-content-center">
+              <div class="col-md-4" data-aos="fade-up">
+                <div class="card ai-card h-100 text-dark shadow-sm border-0 rounded-4">
                   <div class="card-body text-center">
                     <h5 class="card-title">Suno AI</h5>
                     <p class="card-text">Мәтін негізінде музыка жасайды.</p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card ai-card h-100">
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card ai-card h-100 text-dark shadow-sm border-0 rounded-4">
                   <div class="card-body text-center">
                     <h5 class="card-title">Runway ML</h5>
                     <p class="card-text">Нейрондық желілер негізінде видео редакторы.</p>
@@ -244,13 +252,16 @@
               </div>
             </div>
           </div>
+
         </div>
+
+        <!-- Стрелки -->
         <button class="carousel-control-prev" type="button" data-bs-target="#aiCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
           <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#aiCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
