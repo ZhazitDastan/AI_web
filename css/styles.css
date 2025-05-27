@@ -128,8 +128,8 @@ body {
   border-radius: 12px;
   padding: 25px;
   position: absolute;
-  transform: translateX(-50%);
-  margin-top: 50px;
+  transform: translateX(20%);
+  /* margin-top: 50px; */
   z-index: 1050;
 }
 

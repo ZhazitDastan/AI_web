@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  // Кешируем DOM-элементы
   const servicesButton = document.getElementById("servicesButton");
   const mobileServicesButton = document.getElementById("mobileServicesButton");
   const desktopSubmenu = document.getElementById("desktopSubmenu");
@@ -6,38 +7,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const servicesText = document.getElementById("servicesText");
   const mobileServicesText = document.getElementById("mobileServicesText");
   const currentPageText = document.getElementById("currentPageText");
-  const submenuOptions = document.querySelectorAll(".submenu-option");
+  const submenuOptions = Array.from(document.querySelectorAll(".submenu-option"));
   const offcanvas = document.getElementById("offcanvasMenu");
-  const sidebarLinks = document.querySelectorAll(".sidebar-link");
+  const navLinks = Array.from(document.querySelectorAll(".nav-link, .sidebar-link, .services-button"));
+  const sidebarLinks = Array.from(document.querySelectorAll(".sidebar-link"));
 
   let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  let timeout;
   let activeLinkText = "Басты бет";
+  let resizeTimeout;
 
   function normalizePath(path) {
     return path === "/" ? "/index.html" : path;
   }
 
+  // Главная функция установки активного состояния и текста
   function setActiveLink() {
     const currentPath = normalizePath(window.location.pathname);
 
-    document.querySelectorAll(".nav-link, .sidebar-link, .services-button").forEach(link => {
-      link.classList.remove("active");
-    });
+    // Сбрасываем активные классы у всех ссылок и опций
+    navLinks.forEach(link => link.classList.remove("active"));
+    submenuOptions.forEach(option => option.classList.remove("active"));
 
-    document.querySelectorAll(".submenu-option").forEach(option => {
-      option.classList.remove("active");
-    });
-
-    document.querySelectorAll(".nav-link, .sidebar-link").forEach(link => {
+    // Ищем и помечаем активные ссылки
+    navLinks.forEach(link => {
       const href = normalizePath(link.getAttribute("href"));
       if (href === currentPath) {
         link.classList.add("active");
-        activeLinkText = link.textContent;
+        activeLinkText = link.textContent.trim();
       }
     });
 
-    const isWeekPage = currentPath.match(/\/pages\/week\d+\.html/);
+    // Обработка страниц с неделями (week)
+    const isWeekPage = /\/pages\/week\d+\.html/.test(currentPath);
     const savedWeek = localStorage.getItem('selectedWeek');
 
     if (isWeekPage) {
@@ -60,16 +61,22 @@ document.addEventListener("DOMContentLoaded", function () {
       servicesText.textContent = "Апта";
       mobileServicesText.textContent = "Апта";
       activeLinkText = currentPath === "/index.html" ? "Басты бет" : "ЖИ";
+      servicesButton.classList.remove("active");
+      mobileServicesButton.classList.remove("active");
     } else if (savedWeek && !isWeekPage) {
       servicesText.textContent = savedWeek;
       mobileServicesText.textContent = savedWeek;
       activeLinkText = savedWeek;
       servicesButton.classList.add("active");
+      mobileServicesButton.classList.add("active");
     } else {
       servicesText.textContent = "Апта";
       mobileServicesText.textContent = "Апта";
+      servicesButton.classList.remove("active");
+      mobileServicesButton.classList.remove("active");
     }
 
+    // Показ текста текущей страницы на мобиле
     if (window.innerWidth <= 991) {
       currentPageText.textContent = activeLinkText;
     } else {
@@ -77,111 +84,136 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  setActiveLink();
-  window.addEventListener("popstate", setActiveLink);
-  window.addEventListener("load", setActiveLink);
-
-  window.addEventListener("resize", function () {
-    setActiveLink();
-    if (window.innerWidth <= 991) {
-      currentPageText.textContent = activeLinkText;
-    } else {
-      currentPageText.textContent = "";
-    }
-  });
-
-  function isDesktopMode() {
-    return window.innerWidth > 991 && !isTouchDevice;
-  }
-
+  // Обработчики меню для десктопа
   function setupDesktopEvents() {
-    servicesButton.parentElement.addEventListener("mouseenter", function () {
-      clearTimeout(timeout);
+    // Используем делегирование и кешируем обработчики, чтобы не добавлять их несколько раз
+    if (setupDesktopEvents.inited) return;
+    setupDesktopEvents.inited = true;
+
+    const parent = servicesButton.parentElement;
+
+    let timeoutId;
+
+    parent.addEventListener("mouseenter", () => {
+      clearTimeout(timeoutId);
       desktopSubmenu.classList.add("show");
     });
 
-    servicesButton.parentElement.addEventListener("mouseleave", function () {
-      timeout = setTimeout(() => {
+    parent.addEventListener("mouseleave", () => {
+      timeoutId = setTimeout(() => {
         desktopSubmenu.classList.remove("show");
       }, 300);
     });
 
-    servicesButton.addEventListener("click", function (e) {
+    servicesButton.addEventListener("click", (e) => {
       e.preventDefault();
-      const isShown = desktopSubmenu.classList.contains("show");
-      desktopSubmenu.classList.toggle("show", !isShown);
+      desktopSubmenu.classList.toggle("show");
     });
 
-    document.addEventListener("click", function (e) {
-      if (!servicesButton.parentElement.contains(e.target) && !desktopSubmenu.contains(e.target)) {
+    document.addEventListener("click", (e) => {
+      if (!parent.contains(e.target) && !desktopSubmenu.contains(e.target)) {
         desktopSubmenu.classList.remove("show");
       }
     });
   }
 
+  // Обработчики для мобильного меню
   function setupMobileEvents() {
-    servicesButton.addEventListener("click", function (e) {
+    if (setupMobileEvents.inited) return;
+    setupMobileEvents.inited = true;
+
+    servicesButton.addEventListener("click", (e) => {
       e.preventDefault();
-      const isShown = desktopSubmenu.classList.contains("show");
-      desktopSubmenu.classList.toggle("show", !isShown);
+      desktopSubmenu.classList.toggle("show");
     });
   }
 
-  if (isDesktopMode()) {
-    setupDesktopEvents();
-  } else {
-    setupMobileEvents();
-  }
-
-  window.addEventListener("resize", function () {
+  // Инициализация меню в зависимости от ширины и устройства
+  function initMenu() {
     desktopSubmenu.classList.remove("show");
-    if (isDesktopMode()) {
+
+    if (window.innerWidth > 991 && !isTouchDevice) {
       setupDesktopEvents();
     } else {
       setupMobileEvents();
     }
-  });
+  }
 
-  mobileServicesButton.addEventListener("click", function (e) {
+  // Обработчик открытия мобильного подменю
+  mobileServicesButton.addEventListener("click", (e) => {
     e.preventDefault();
     const isShown = mobileSubmenu.classList.contains("show");
     mobileSubmenu.classList.toggle("show", !isShown);
     mobileServicesButton.querySelector(".submenu-arrow").classList.toggle("active", !isShown);
+
     if (!isShown) {
-      const buttonRect = mobileServicesButton.getBoundingClientRect();
-      mobileSubmenu.style.top = `${buttonRect.top}px`;
-      mobileSubmenu.style.left = `${buttonRect.right}px`;
+      const rect = mobileServicesButton.getBoundingClientRect();
+      mobileSubmenu.style.top = `${rect.bottom}px`;
+      mobileSubmenu.style.left = `${rect.left}px`;
     }
   });
 
-  document.addEventListener("click", function (e) {
+  // Клик вне подменю для закрытия
+  document.addEventListener("click", (e) => {
     const isSubmenuOption = e.target.classList.contains("submenu-option");
+
     if (!servicesButton.contains(e.target) && !desktopSubmenu.contains(e.target) && !isSubmenuOption) {
       desktopSubmenu.classList.remove("show");
     }
+
     if (!mobileServicesButton.contains(e.target) && !mobileSubmenu.contains(e.target) && !isSubmenuOption) {
       mobileSubmenu.classList.remove("show");
       mobileServicesButton.querySelector(".submenu-arrow").classList.remove("active");
     }
   });
 
-  offcanvas.addEventListener("show.bs.offcanvas", function () {
-    setActiveLink();
-  });
-
+  // Обработка клика по опциям подменю
   submenuOptions.forEach(option => {
-    option.addEventListener("click", function (e) {
+    option.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-      const selectedText = this.textContent;
+      const selectedText = option.textContent.trim();
       servicesText.textContent = selectedText;
       mobileServicesText.textContent = selectedText;
       localStorage.setItem('selectedWeek', selectedText);
       currentPageText.textContent = selectedText;
-      window.location.href = this.getAttribute("href");
-      setActiveLink();
+
+      // Используем location.assign, чтобы не создавать новую запись в истории, если нужно заменить
+      window.location.href = option.getAttribute("href");
     });
   });
 
-  feather.replace();
+  // Обработка popstate для перехода назад и вперед
+  window.addEventListener("popstate", () => {
+    setActiveLink();
+  });
+
+  // Обработка загрузки страницы
+  window.addEventListener("load", () => {
+    setActiveLink();
+    initMenu();
+  });
+
+  // Оптимизация resize — запускаем setActiveLink и initMenu с дебаунсом
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      setActiveLink();
+      initMenu();
+    }, 150);
+  });
+
+  // При открытии offcanvas — обновляем активные ссылки
+  offcanvas.addEventListener("show.bs.offcanvas", () => {
+    setActiveLink();
+  });
+
+  // Инициализация при загрузке DOM
+  setActiveLink();
+  initMenu();
+
+  // Инициализация feather icons, если подключен feather
+  if (typeof feather !== 'undefined') {
+    feather.replace();
+  }
 });
