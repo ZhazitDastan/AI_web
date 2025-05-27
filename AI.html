@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- CSS -->
+  <!-- AOS CSS для анимаций -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="/css/styles.css">
-  <title>Жасанды интеллект</title>
-
-  <!-- Подключи Font Awesome-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="stylesheet" href="/css/ai-styles.css">
+  <title>Жасанды Интеллект Жолы</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
+
+  <!-- Hero Section -->
+<div class="hero-section">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="assets/BG_HOME.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-content" data-aos="fade-up">
+    <h1 class="hero-title">Жасанды Интеллект Жолы</h1>
+    <p class="hero-subtitle">Жасанды интеллекттің даму тарихы мен негізгі жетістіктері</p>
+    <blockquote class="hero-quote">"ЖИ тек болашақ емес — ол біздің қазіргі уақытымыз."</blockquote>
+  </div>
+</div>
 
 <header>
   <!-- Navbar -->
@@ -40,11 +53,11 @@
       <div class="collapse navbar-collapse justify-content-center">
         <ul class="navbar-nav">
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/index.html" aria-current="page">Басты бет</a>
+            <a class="nav-link active" href="/index.html" aria-current="page">Басты бет</a>
           </li>
           <li class="nav-item mx-2 position-relative">
             <button class="nav-link btn services-button" id="servicesButton">
-              <span id="servicesText">Услуги</span>
+              <span id="servicesText">1-Апта</span>
               <span class="submenu-arrow">▼</span>
             </button>
             <div class="dropdown-menu submenu p-3" id="desktopSubmenu">
@@ -106,7 +119,7 @@
       <!-- Профиль -->
       <div class="sidebar-profile text-center p-4 border-bottom">
         <img src="/assets/profile.png" alt="avatar" class="profile-img mb-2">
-        <div class="profile-name mb-1">Жулдыз Ниязбекова</div>
+        <div class="profile-name mb-1">Ниязбекова Жулдыз</div>
         <div class="profile-role text-muted small">Жасанды интеллект</div>
       </div>
 
@@ -116,7 +129,7 @@
           <li><a href="/index.html" class="nav-link sidebar-link py-3">Басты бет</a></li>
           <li class="position-relative">
             <button class="btn sidebar-link d-flex justify-content-between align-items-center w-100 py-3" id="mobileServicesButton">
-              <span id="mobileServicesText">Апта</span>
+              <span id="mobileServicesText">Услуги</span>
               <span class="submenu-arrow">►</span>
             </button>
             <div class="submenu p-2" id="mobileSubmenu">
@@ -143,7 +156,7 @@
               </div>
             </div>
           </li>
-          <li><a href="/AI.html" class="nav-link sidebar-link py-3">Жасанды интеллект</a></li>
+          <li><a href="/AI.html" class="nav-link sidebar-link py-3 AItext">Жасанды интеллект</a></li>
         </ul>
       </nav>
 
@@ -158,11 +171,278 @@
   </div>
 </header>
 
+
 <main class="container my-4 flex-grow-1">
-  <h1>Добро пожаловать</h1>
-  <p>Ваш контент здесь...
-    s[mosivn;osv]
-  </p>
+  <!-- Timeline Section -->
+  <section class="timeline-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-5" data-aos="fade-up">Жасанды Интеллект Хронологиясы</h2>
+      <div class="timeline">
+        <!-- 1950 -->
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-year">
+            <span class="year-circle">1950</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 d-none d-md-block">
+                <img src="/assets/AI_HTML/1950.jpeg" alt="Алан Тьюринг" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>1950</h3> -->
+                <p>Алан Тьюринг "Computing Machinery and Intelligence" еңбегін жариялап, Тьюринг тестін ұсынады.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/1950.jpeg" alt="Алан Тьюринг" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1956 -->
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-year">
+            <span class="year-circle">1956</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 order-md-2 d-none d-md-block">
+                <img src="/assets/AI_HTML/1956.png" alt="Дартмутская конференция" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>1956</h3> -->
+                <p>Дартмут конференциясы: "Artificial Intelligence" терминінің ресми тууы.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/1956.png" alt="Дартмутская конференция" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1966 -->
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-year">
+            <span class="year-circle">1966</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 d-none d-md-block">
+                <img src="/assets/AI_HTML/1966.png" alt="Eliza чат-бот" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>1966</h3> -->
+                <p>Eliza — психотерапевтті имитациялайтын алғашқы чат-бот.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/1966.png" alt="Eliza чат-бот" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1980 -->
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-year">
+            <span class="year-circle">1980</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 order-md-2 d-none d-md-block">
+                <img src="/assets/AI_HTML/1980.jpg" alt="Экспертные системы" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>1980</h3> -->
+                <p>Эксперттік жүйелер өнеркәсіпте танымал болды.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/1980.jpg" alt="Экспертные системы" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1997 -->
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-year">
+            <span class="year-circle">1997</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 d-none d-md-block">
+                <img src="/assets/AI_HTML/1997.png" alt="Deep Blue vs Каспаров" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>1997</h3> -->
+                <p>Deep Blue Гарри Каспаровты шахматта жеңді.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/1997.png" alt="Deep Blue vs Каспаров" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2011 -->
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-year">
+            <span class="year-circle">2011</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 order-md-2 d-none d-md-block">
+                <img src="/assets/AI_HTML/2011.jpg" alt="IBM Watson Jeopardy!" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>2011</h3> -->
+                <p>IBM Watson Jeopardy! шоуында жеңді.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/2011.jpg" alt="IBM Watson Jeopardy!" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2012 -->
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-year">
+            <span class="year-circle">2012</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 d-none d-md-block">
+                <img src="/assets/AI_HTML/2012.png" alt="AlexNet" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>2012</h3> -->
+                <p>AlexNet ImageNet-те жеңіске жетіп, терең оқытудың дәуірін бастады.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/2012.png" alt="AlexNet" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2016 -->
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-year">
+            <span class="year-circle">2016</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 order-md-2 d-none d-md-block">
+                <img src="/assets/AI_HTML/2016.png" alt="AlphaGo" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>2016</h3> -->
+                <p>AlphaGo Го ойынында чемпионды жеңді.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/2016.png" alt="AlphaGo" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-year">
+            <span class="year-circle">2022</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 d-none d-md-block">
+                <img src="/assets/AI_HTML/2022.jpg" alt="ChatGPT" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>2022</h3> -->
+                <p>ChatGPT ашық қолжетімділікке шығып, интернетті жарып жіберді.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/2022.jpg" alt="ChatGPT" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-year">
+            <span class="year-circle">2023</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 order-md-2 d-none d-md-block">
+                <img src="/assets/AI_HTML/2023.jpg" alt="Midjourney" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>2023</h3> -->
+                <p>Midjourney және басқа модельдер фотореалистік суреттер жасайды.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/2023.jpg" alt="Midjourney" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-year">
+            <span class="year-circle">2024</span>
+          </div>
+          <div class="timeline-content">
+            <div class="row">
+              <div class="col-md-6 d-none d-md-block">
+                <img src="/assets/AI_HTML/2024.png" alt="Suno AI & Sora" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6">
+                <!-- <h3>2024</h3> -->
+                <p>Suno AI музыка, ал OpenAI Sora видео жасайды.</p>
+                <div class="d-md-none">
+                  <img src="/assets/AI_HTML/2024.png" alt="Suno AI & Sora" class="img-fluid rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="timeline-item" data-aos="fade-right">
+  <div class="timeline-year">
+    <span class="year-circle">2025</span>
+  </div>
+  <div class="timeline-content">
+    <div class="row">
+      <div class="col-md-6 order-md-2 d-none d-md-block">
+        <img src="/assets/AI_HTML/2025.jpg" alt="Multimodal AI in 2025" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6">
+        <!-- <h3>2025</h3> -->
+        <p>2025 жылы мультимодальды ИИ жаңа деңгейге шықты — GPT және басқа жүйелер сурет, видео және дыбысты түсініп, талдай алады. Бұл технология білім, медицина және креатив саласында жаңа мүмкіндіктер ашты.</p>
+        <div class="d-md-none">
+          <img src="/assets/AI_HTML/2025.jpg" alt="Multimodal AI in 2025" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+
+  <!-- Conclusion Section -->
+  <section class="conclusion-section py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4" data-aos="fade-up">Келесі не болады?</h2>
+      <p class="lead" data-aos="fade-up" data-aos-delay="100">
+        Жасанды интеллект қазірдің өзінде бізбен бірге. Ал ертең ол қандай болады — бұл бізге байланысты.
+      </p>
+      <a href="/index.html" class="btn btn-primary mt-3" data-aos="zoom-in">Көбірек білу →</a>
+    </div>
+  </section>
+  
 </main>
 
 <footer class="footer-custom">
@@ -202,5 +482,13 @@
 <script src="https://unpkg.com/feather-icons"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/main.js"></script>
+<!-- AOS JS для анимаций -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
 </body>
 </html>

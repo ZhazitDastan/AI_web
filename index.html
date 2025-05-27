@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS для анимаций -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/index-styles.css">
@@ -14,15 +16,18 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-<!-- Анимированный фон -->
+  
+    <!-- Анимированный фон -->
 <div class="hero-section">
   <video autoplay muted loop playsinline class="bg-video">
     <source src="assets/BG_HOME.mp4" type="video/mp4" />
   </video>
   <div class="hero-content">
-    <h1 class="quote-text gradient-text">"Жасанды интеллект – адамзаттың болашағын қалай өзгертеді?"</h1>
+    <h1 class="quote-text gradient-text">"Технология — бұл жай ғана құрал емес, бұл біздің ақыл-ойымыздың көрінісі."</h1>
+    <p class="quote-author">— Альберт Эйнштейн</p>
   </div>
 </div>
+    
 
 <header>
   <!-- Navbar -->
@@ -49,7 +54,7 @@
       <div class="collapse navbar-collapse justify-content-center">
         <ul class="navbar-nav">
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/index.html" aria-current="page">Басты бет</a>
+            <a class="nav-link active" href="/index.html" aria-current="page">Басты бет</a>
           </li>
           <li class="nav-item mx-2 position-relative">
             <button class="nav-link btn services-button" id="servicesButton">
@@ -168,8 +173,89 @@
 </header>
 
 <main class="container my-4 flex-grow-1">
-  <h1>Добро пожаловать</h1>
-  <p>Ваш контент здесь...</p>
+  <!-- Интро-блок: Что такое ИИ? -->
+  <section class="intro-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-4" data-aos="fade-up">💡 Жасанды интеллект дегеніміз не?</h2>
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100">
+          <span class="icon me-3">🤖</span>
+          <p>Жасанды интеллект (ЖИ) — бұл машиналардың адам ойлауын имитациялау, үйрену, шешім қабылдау және бұрын адам интеллектін қажет ететін тапсырмаларды орындау қабілеті.</p>
+        </div>
+        <div class="col-md-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+          <span class="icon me-3">📈</span>
+          <p>Ол қазірдің өзінде медицинада, білім беруде, дизайнда, кодтауда және басқа да көптеген салаларда көмектесуде.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Слайдер: Популярные ИИ -->
+  <section class="popular-ai-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-4" data-aos="fade-up">🎞️ Танымал Жасанды Интеллект</h2>
+      <div id="aiCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="card ai-card h-100">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">ChatGPT</h5>
+                    <p class="card-text">Сөйлеседі, сұрақтарға жауап береді, код жазуға көмектеседі.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card ai-card h-100">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Midjourney</h5>
+                    <p class="card-text">Мәтіндік сипаттама бойынша суреттер жасайды.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card ai-card h-100">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Copilot</h5>
+                    <p class="card-text">Программисттерге код редакторларында көмекші.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="card ai-card h-100">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Suno AI</h5>
+                    <p class="card-text">Мәтін негізінде музыка жасайды.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card ai-card h-100">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Runway ML</h5>
+                    <p class="card-text">Нейрондық желілер негізінде видео редакторы.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#aiCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#aiCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="footer-custom">
@@ -209,5 +295,13 @@
 <script src="https://unpkg.com/feather-icons"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/main.js"></script>
+<!-- AOS JS для анимаций -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
 </body>
 </html>

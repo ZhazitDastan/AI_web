@@ -1,89 +1,102 @@
 /* Видео на фоне */
 .bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.85;
+}
+
+/* Контейнер секции */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 500px; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem; 
+  padding-top: 90px; 
+  z-index: 0;
+}
+
+/* Контент поверх видео */
+.hero-content {
+  z-index: 1;
+  color: #ffffff;
+  max-width: 800px; /* Уменьшаем максимальную ширину */
+  padding: 0.5rem; /* Уменьшаем внутренний padding */
+  width: 90%;
+}
+
+/* Текст цитаты */
+.quote-text {
+  font-size: clamp(1.2rem, 4vw, 1.8rem); /* Уменьшаем базовый размер */
+  line-height: 1.3;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Лёгкое уменьшение теней */
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #00b4d8, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Автор цитаты */
+.quote-author {
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* Уменьшаем размер */
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.3rem; /* Уменьшаем отступ сверху */
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3); /* Лёгкое уменьшение теней */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .hero-section {
+      min-height: 250px; /* Уменьшаем минимальную высоту для планшетов */
+      padding: 1rem;
+      padding-top: 80px;
   }
 
-  .gradient-text {
-    .gradient-text {
-        background: linear-gradient(
-          90deg,
-          rgba(42, 123, 155, 1) 0%,
-          rgba(87, 199, 133, 1) 23%,
-          rgba(237, 221, 83, 1) 100%
-        );
-        -webkit-background-clip: text;        /* Клип по форме текста */
-        -webkit-text-fill-color: transparent; /* Прозрачный цвет текста */
-        background-clip: text;                /* Поддержка вне WebKit */
-        font-weight: bold;
-      }
-      
-  }
-  
-  
-  /* Контейнер секции */
-  .hero-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    z-index: 0;
-  }
-  
-  /* Контент поверх видео */
-  .hero-content {
-    z-index: 1;
-    color: #ffffff;
-    max-width: 900px;
-    padding: 1rem;
-    width: 90%;
-  }
-  
-  /* Текст цитаты */
   .quote-text {
-    font-size: clamp(1.5rem, 5vw, 2.2rem);
-    line-height: 1.4;
-    font-weight: 500;
-    color: #ffffff;
-    text-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
-  }
-  
-  /* Медиа-запросы для адаптивности */
-  @media (max-width: 768px) {
-    .hero-section {
-      height: 70vh;
-      padding: 1.5rem;
-    }
-  
-    .quote-text {
-      font-size: clamp(1.2rem, 4vw, 1.8rem);
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .hero-section {
-      height: 50vh;
-      padding: 1rem;
-    }
-  
-    .quote-text {
       font-size: clamp(1rem, 3.5vw, 1.5rem);
-    }
   }
-  
-  @media (max-height: 400px) {
-    .hero-section {
-      height: 80vh;
-    }
+
+  .quote-author {
+      text-align: center;
+      font-size: clamp(0.8rem, 1.8vw, 1rem);
   }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+      min-height: 250px; /* Уменьшаем минимальную высоту для мобильных */
+      padding: 0.5rem;
+      padding-top: 70px;
+  }
+
+  .quote-text {
+      font-size: clamp(0.9rem, 3vw, 1.3rem);
+  }
+
+  .quote-author {
+      text-align: center;
+      font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  }
+}
+
+@media (max-height: 400px) {
+  .hero-section {
+      min-height: 250px; /* Ещё больше уменьшаем для маленьких экранов */
+  }
+}

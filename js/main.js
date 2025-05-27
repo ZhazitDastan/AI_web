@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.removeItem('selectedWeek');
       servicesText.textContent = "Апта";
       mobileServicesText.textContent = "Апта";
-      activeLinkText = currentPath === "/index.html" ? "Басты бет" : "Жасанды интеллект";
+      activeLinkText = currentPath === "/index.html" ? "Басты бет" : "ЖИ";
     } else if (savedWeek && !isWeekPage) {
       servicesText.textContent = savedWeek;
       mobileServicesText.textContent = savedWeek;
