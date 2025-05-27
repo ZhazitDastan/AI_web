@@ -14,23 +14,29 @@ document.addEventListener("DOMContentLoaded", function () {
   let timeout;
   let activeLinkText = "Басты бет";
 
-  // Функция для установки активного элемента
+  function normalizePath(path) {
+    return path === "/" ? "/index.html" : path;
+  }
+
   function setActiveLink() {
-    const currentPath = window.location.pathname;
+    const currentPath = normalizePath(window.location.pathname);
 
-    // Сбрасываем все активные классы
-    document.querySelectorAll(".nav-link, .sidebar-link, .services-button").forEach(link => link.classList.remove("active"));
-    document.querySelectorAll(".submenu-option").forEach(option => option.classList.remove("active"));
+    document.querySelectorAll(".nav-link, .sidebar-link, .services-button").forEach(link => {
+      link.classList.remove("active");
+    });
 
-    // Устанавливаем активный элемент на основе текущего пути
+    document.querySelectorAll(".submenu-option").forEach(option => {
+      option.classList.remove("active");
+    });
+
     document.querySelectorAll(".nav-link, .sidebar-link").forEach(link => {
-      if (link.getAttribute("href") === currentPath) {
+      const href = normalizePath(link.getAttribute("href"));
+      if (href === currentPath) {
         link.classList.add("active");
         activeLinkText = link.textContent;
       }
     });
 
-    // Проверяем, является ли страница неделей
     const isWeekPage = currentPath.match(/\/pages\/week\d+\.html/);
     const savedWeek = localStorage.getItem('selectedWeek');
 
@@ -44,13 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem('selectedWeek', weekText);
       activeLinkText = weekText;
 
-      // Устанавливаем активный стиль для соответствующего пункта в подменю
       submenuOptions.forEach(option => {
-        if (option.getAttribute("href") === currentPath) {
+        if (normalizePath(option.getAttribute("href")) === currentPath) {
           option.classList.add("active");
         }
       });
-    } else if (currentPath === "/index.html" || currentPath === "/AI.html") { // Добавляем условие для AI.html
+    } else if (currentPath === "/index.html" || currentPath === "/AI.html") {
       localStorage.removeItem('selectedWeek');
       servicesText.textContent = "Апта";
       mobileServicesText.textContent = "Апта";
@@ -65,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileServicesText.textContent = "Апта";
     }
 
-    // Обновляем текст в хедере на мобильных
     if (window.innerWidth <= 991) {
       currentPageText.textContent = activeLinkText;
     } else {
@@ -73,12 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Вызываем при загрузке страницы и при изменении истории (назад/вперёд)
   setActiveLink();
   window.addEventListener("popstate", setActiveLink);
   window.addEventListener("load", setActiveLink);
 
-  // Обновление при изменении размера экрана
   window.addEventListener("resize", function () {
     setActiveLink();
     if (window.innerWidth <= 991) {
@@ -88,12 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Функция для определения режима (десктоп или мобильный)
   function isDesktopMode() {
     return window.innerWidth > 991 && !isTouchDevice;
   }
 
-  // Логика для десктопа (наведение или клик)
   function setupDesktopEvents() {
     servicesButton.parentElement.addEventListener("mouseenter", function () {
       clearTimeout(timeout);
@@ -109,11 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     servicesButton.addEventListener("click", function (e) {
       e.preventDefault();
       const isShown = desktopSubmenu.classList.contains("show");
-      if (!isShown) {
-        desktopSubmenu.classList.add("show");
-      } else {
-        desktopSubmenu.classList.remove("show");
-      }
+      desktopSubmenu.classList.toggle("show", !isShown);
     });
 
     document.addEventListener("click", function (e) {
@@ -123,29 +119,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Логика для мобильного (клик)
   function setupMobileEvents() {
     servicesButton.addEventListener("click", function (e) {
       e.preventDefault();
       const isShown = desktopSubmenu.classList.contains("show");
-      if (!isShown) {
-        desktopSubmenu.classList.add("show");
-      } else {
-        desktopSubmenu.classList.remove("show");
-      }
+      desktopSubmenu.classList.toggle("show", !isShown);
     });
   }
 
-  // Инициализация событий в зависимости от режима
   if (isDesktopMode()) {
     setupDesktopEvents();
   } else {
     setupMobileEvents();
   }
 
-  // Обновление событий при изменении размера окна
   window.addEventListener("resize", function () {
-    desktopSubmenu.classList.remove("show"); 
+    desktopSubmenu.classList.remove("show");
     if (isDesktopMode()) {
       setupDesktopEvents();
     } else {
@@ -153,23 +142,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Логика для offcanvas (мобильное меню)
   mobileServicesButton.addEventListener("click", function (e) {
     e.preventDefault();
     const isShown = mobileSubmenu.classList.contains("show");
+    mobileSubmenu.classList.toggle("show", !isShown);
+    mobileServicesButton.querySelector(".submenu-arrow").classList.toggle("active", !isShown);
     if (!isShown) {
-      mobileSubmenu.classList.add("show");
-      mobileServicesButton.querySelector(".submenu-arrow").classList.add("active");
       const buttonRect = mobileServicesButton.getBoundingClientRect();
       mobileSubmenu.style.top = `${buttonRect.top}px`;
       mobileSubmenu.style.left = `${buttonRect.right}px`;
-    } else {
-      mobileSubmenu.classList.remove("show");
-      mobileServicesButton.querySelector(".submenu-arrow").classList.remove("active");
     }
   });
 
-  // Закрытие при клике вне (для всех устройств), но исключаем закрытие при клике на submenu-option
   document.addEventListener("click", function (e) {
     const isSubmenuOption = e.target.classList.contains("submenu-option");
     if (!servicesButton.contains(e.target) && !desktopSubmenu.contains(e.target) && !isSubmenuOption) {
@@ -181,12 +165,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Обновление активных стилей при открытии offcanvas
   offcanvas.addEventListener("show.bs.offcanvas", function () {
     setActiveLink();
   });
 
-  // Выбор недели
   submenuOptions.forEach(option => {
     option.addEventListener("click", function (e) {
       e.preventDefault();
@@ -201,6 +183,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Инициализация Feather Icons
   feather.replace();
 });
